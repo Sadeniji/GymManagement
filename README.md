@@ -1,2 +1,2 @@
 # GymManagement
-A gym session schdeduling system using clean code architecture
+#A gym session schdeduling system using clean code architecture
