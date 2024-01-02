@@ -1,0 +1,4 @@
+@host= http://localhost:5278
+@subscriptionId=676caec8-3fde-49e2-8bac-c264b3fde3e8
+
+GET {{host}}/Subscriptions/{{subscriptionId}}
