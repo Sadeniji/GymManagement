@@ -17,12 +17,17 @@ public class SubscriptionsRepository : ISubscriptionsRepository
     public async Task AddSubscriptionAsync(Subscription subscription)
     {
         await _dbContext.Subscriptions.AddAsync(subscription);
-
-        await _dbContext.SaveChangesAsync();
     }
 
     public async Task<Subscription?> GetSubscriptionByIdAsync(Guid subscriptionId)
     {
         return await _dbContext.Subscriptions.FirstOrDefaultAsync(s => s.Id == subscriptionId);
+    }
+
+    public async Task DeleteSubscriptionAsync(Guid subscriptionId)
+    {
+        var subscription = await _dbContext.Subscriptions.FirstOrDefaultAsync(s => s.Id == subscriptionId);
+
+        
     }
 }

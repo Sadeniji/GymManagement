@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Subscriptions\" />
+    <Folder Include="Admins\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.SmartEnum" Version="7.0.0" />
+    <PackageReference Include="ErrorOr" Version="1.4.0" />
+    <PackageReference Include="Throw" Version="1.4.0" />
   </ItemGroup>
 
 </Project>
