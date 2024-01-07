@@ -1,4 +1,5 @@
 @host= http://localhost:5278
 @subscriptionId=e672b992-aa22-41ca-a37a-66fdbd8503dc
 
-GET {{host}}/Subscriptions/{{subscriptionId}}
+GET {{host}}/subscriptions/{{subscriptionId}}/gyms
+Content-Type: application/json

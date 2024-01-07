@@ -24,10 +24,36 @@ public class SubscriptionsRepository : ISubscriptionsRepository
         return await _dbContext.Subscriptions.FirstOrDefaultAsync(s => s.Id == subscriptionId);
     }
 
-    public async Task DeleteSubscriptionAsync(Guid subscriptionId)
+    public Task RemoveSubscriptionAsync(Subscription subscription)
     {
-        var subscription = await _dbContext.Subscriptions.FirstOrDefaultAsync(s => s.Id == subscriptionId);
+        _dbContext.Remove(subscription);
 
-        
+        return Task.CompletedTask;
+    }
+
+    public async Task<bool> SubscriptionExistsAsync(Guid id)
+    {
+        return await _dbContext.Subscriptions
+            .AsNoTracking()
+            .AnyAsync(subscription => subscription.Id == id);
+    }
+
+    public async Task<Subscription?> GetSubscriptionsByAdminIdAsync(Guid adminId)
+    {
+        return await _dbContext.Subscriptions
+            .AsNoTracking()
+            .FirstOrDefaultAsync(subscription => subscription.AdminId == adminId);
+    }
+
+    public async Task<List<Subscription>> ListSubscriptionsAsync()
+    {
+        return await _dbContext.Subscriptions.ToListAsync();
+    }
+
+    public Task UpdateAsync(Subscription subscription)
+    {
+        _dbContext.Update(subscription);
+
+        return Task.CompletedTask;
     }
 }

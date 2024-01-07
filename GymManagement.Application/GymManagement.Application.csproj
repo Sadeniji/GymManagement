@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
     <ProjectReference Include="..\GymManagement.Domain\GymManagement.Domain.csproj" />
@@ -8,6 +8,10 @@
     <PackageReference Include="ErrorOr" Version="1.4.0" />
     <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Rooms\Commands\DeleteRoom\" />
   </ItemGroup>
 
   <PropertyGroup>
